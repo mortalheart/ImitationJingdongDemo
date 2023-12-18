@@ -1,6 +1,6 @@
 # **Imitation Jingdong Demo**
 
-Imitation Jingdong project.
+Imitation Jingdong Demo project.
 
 # **声明**
 ⚠️本APP仅限于学习交流使用，请勿用于其它商业用途
