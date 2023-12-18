@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
+import 'common/routers/index.dart';
 import 'global.dart';
 
 Future<void>  main() async{
@@ -38,7 +39,10 @@ class MyApp extends StatelessWidget {
               child:GetMaterialApp(
                 title: 'Imitation Jingdong Demo',
                 debugShowCheckedModeBanner: false,
-                home: const MyHomePage(title: 'Imitation Jingdong Demo',),
+                // 路由
+                initialRoute: RouteNames.systemSplash,
+                getPages: RoutePages.list,
+                navigatorObservers: [RoutePages.observer],
                 // builder
                 builder: (context, widget) {
                   widget = EasyLoading.init()(context, widget); // EasyLoading 初始化

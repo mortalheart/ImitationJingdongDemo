@@ -34,7 +34,7 @@ class Global {
         // 底部状态栏与主内容分割线颜色
         systemNavigationBarDividerColor: Colors.transparent,
         // 底部状态栏颜色
-        systemNavigationBarColor: Colors.white,
+        systemNavigationBarColor: Colors.black,
         // 底部状态栏图标样式
         systemNavigationBarIconBrightness: Brightness.dark,
       );
