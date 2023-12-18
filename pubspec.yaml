@@ -16,16 +16,43 @@ dependencies:
 
 
   cupertino_icons: ^1.0.2
+  flutter_native_splash: ^2.3.8
+  flutter_screenutil: ^5.9.0
+  get: ^4.6.6
+  flutter_easyloading: ^3.0.5
+  pull_to_refresh: ^2.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
 
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.1
+  flutter_launcher_icons: ^0.13.1
 
 
+flutter_launcher_icons:
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/images/logo.jpeg" # 启动器图标
+  adaptive_icon_background: "#ffffff" # 填充自适应图标的背景
+  adaptive_icon_foreground: "assets/images/logo.jpeg" # 自适应图标的图标前景的图
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  # 设置好后，需要在终端运行下面命令
+  # flutter pub get
+  # flutter pub run flutter_launcher_icons:main -f pubspec.yaml
 
+# 显示设备启动图，解决 Flutter App 启动开头的白屏问题
+flutter_native_splash:
+  background_image: "assets/images/splash.jpeg"
+  #  color: "#ffffff"  # color 启动图背景色，这里我设置白色 #ffffff
+  #  image: "assets/images/screen.png" # image 启动图，可以放你的 logo，这张图背景透明
+  #  image: "assets/images/screen.png" # image 启动图，可以放你的 logo，这张图背景透明
+  # 设置好后，需要在终端运行下面命令，生成各个平台的 splash ui 配置代码
+  # flutter pub run flutter_native_splash:create
+  # 要恢复为 Flutter 默认的白色闪屏界面，运行下面的命令：
+  # flutter pub run flutter_native_splash:remove
 flutter:
 
 
