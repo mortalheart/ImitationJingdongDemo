@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:imitation_jingdong/common/index.dart';
 import 'package:imitation_jingdong/pages/index.dart';
 
 class MainPage extends StatefulWidget {
@@ -24,10 +25,58 @@ class _MainViewGetX extends GetView<MainController> {
 
   // 主视图
   Widget _buildView() {
-    return  Scaffold(
-      body: Container(
-        color: Colors.amber,
+    return PopScope(
+        // 防止连续点击两次退出
+        onPopInvoked: (val)  {
+      return;
+    },
+    child: Scaffold(
+      body: PageView(
+        physics: const NeverScrollableScrollPhysics(),
+        controller: controller.pageController,
+        onPageChanged: controller.onIndexChanged,
+        children: const [
+          HomePage(),
+          StrollPage(),
+          NewProductPage(),
+          CartPage(),
+          MinePage(),
+        ],
       ),
+      bottomNavigationBar: GetBuilder<MainController>(
+        id: 'navigation',
+        builder: (controller) {
+          return BuildNavigation(
+            currentIndex: controller.currentIndex,
+            items: [
+              NavigationItemModel(
+                label:LocaleKeys.tabBarHome.tr,
+                icon: AssetsSvg.navHomeSvg,
+              ),
+              NavigationItemModel(
+                label: LocaleKeys.tabBarStroll.tr,
+                icon: AssetsSvg.navHomeSvg,
+              ),
+              NavigationItemModel(
+                label: LocaleKeys.tabBarNewProduct.tr,
+                icon: AssetsSvg.navHomeSvg,
+              ),
+              NavigationItemModel(
+                label:LocaleKeys.tabBarCart.tr,
+                icon: AssetsSvg.navHomeSvg,
+              ),
+              NavigationItemModel(
+                label:LocaleKeys.tabBarMine.tr,
+                icon: AssetsSvg.navHomeSvg,
+              ),
+            ],
+            onTap: (int val) {
+              controller.onJumpToPage(val);
+          },
+          );
+        },
+      ),
+    )
     );
   }
 

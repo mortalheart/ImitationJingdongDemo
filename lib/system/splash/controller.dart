@@ -16,7 +16,7 @@ class SplashController extends GetxController {
   void onInit() {
     super.onInit();
     final list= {
-      'type':'ad_details',
+      'type':'ad',
       'id':1,
       'image':'https://tse4-mm.cn.bing.net/th/id/OIP-C.tAxB3qFE_on9pF_qQfPEXAHaNI?pid=ImgDet&rs=1'
     };
