@@ -1,3 +1,4 @@
 library pages;
-export 'splash/index.dart';
+
 export 'main/index.dart';
+export 'navigation/index.dart';

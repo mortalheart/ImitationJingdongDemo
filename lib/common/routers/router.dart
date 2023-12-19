@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:imitation_jingdong/pages/index.dart';
+import 'package:imitation_jingdong/system/index.dart';
 
 import 'index.dart';
 
@@ -19,6 +20,7 @@ class RoutePages {
     ),
     GetPage(
       name: RouteNames.systemSplash,
+      binding: SplashBinding(),
       page: () => const SplashPage(),
     ),
   ];
