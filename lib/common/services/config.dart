@@ -39,7 +39,7 @@ class ConfigService extends GetxService {
     Storage().setBool(Constants.storageFirstOpen, true);
   }
 
-  // 初始 模式 主题
+  // 读取是否是暗黑模式
   void initTheme() {
     var themeCode = Storage().getString(Constants.storageThemeCode);
     _isDarkModel.value = themeCode == "dark" ? true : false;
