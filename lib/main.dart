@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:imitation_jingdong/common/index.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import 'common/routers/index.dart';
@@ -43,6 +44,19 @@ class MyApp extends StatelessWidget {
                 initialRoute: RouteNames.systemSplash,
                 getPages: RoutePages.list,
                 navigatorObservers: [RoutePages.observer],
+                // 样式
+                theme: ConfigService.to.isDarkModel ? AppTheme.dark : AppTheme.light,
+                // 多语言
+                translations: Translation(),
+                // 词典
+                localizationsDelegates: Translation.localizationsDelegates,
+                // 代理
+                supportedLocales: Translation.supportedLocales,
+                // 支持的语言种类
+                locale: ConfigService.to.locale,
+                // 当前语言种类
+                fallbackLocale: Translation.fallbackLocale,
+                // 默认语言种类
                 // builder
                 builder: (context, widget) {
                   widget = EasyLoading.init()(context, widget); // EasyLoading 初始化
@@ -55,53 +69,6 @@ class MyApp extends StatelessWidget {
             )
           );
         }
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

@@ -17,6 +17,8 @@ class AppColors {
   static Color get highlight =>
       Get.isDarkMode ? const Color(0xFFFFB4A9) : const Color(0xFFF77866);
 
+  static Color get bottomBackgroundColor=> const Color(0xFFF2F2F2);
+
   /// Success
   /// Warning
   /// Danger
