@@ -12,7 +12,7 @@ class HomeController extends GetxController {
     }
   ];
   Future<void> onThemeTopic(String s) async{
-   // await
+   /// 切换模式
     await ConfigService.to.switchThemeModel();
  }
 }
