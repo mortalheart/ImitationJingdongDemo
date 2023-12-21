@@ -29,7 +29,7 @@ class HomePage extends GetView<HomeController> {
                 "默认皮肤",
                 backgroundColor: AppColors.antColor,
                 onTap: () {
-                  controller.onThemeTopic('默认皮肤');
+                  controller.onThemeTopic2('默认皮肤');
                 },
               ).paddingAll(30.w),
             ].toColumn(),

@@ -87,4 +87,24 @@ class AppColors {
   static Color get tertiary => Get.theme.colorScheme.tertiary;
 
   static Color get tertiaryContainer => Get.theme.colorScheme.tertiaryContainer;
+
+
+  ///颜色值转换
+  static Color string2Color(String colorString) {
+    if (colorString.isEmpty) {
+      return Colors.transparent;
+    }
+
+    if (colorString[0] == '#') {
+      colorString = colorString.substring(1);
+    }
+
+    int value = int.tryParse(colorString, radix: 16) ?? 0x00000000;
+
+    if (value < 0xFF000000) {
+      value += 0xFF000000;
+    }
+
+    return Color(value);
+  }
 }
