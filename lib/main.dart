@@ -4,8 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:imitation_jingdong/common/index.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-
-import 'common/routers/index.dart';
 import 'global.dart';
 
 Future<void>  main() async{

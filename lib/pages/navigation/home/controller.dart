@@ -1,8 +1,14 @@
 import 'package:get/get.dart';
-import 'package:imitation_jingdong/common/index.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class HomeController extends GetxController {
   HomeController();
+  RefreshController refreshController = RefreshController(initialRefresh: true);
+  @override
+  void dispose() {
+    super.dispose();
+    refreshController.dispose();
+  }
   final themeList = [
     {
       "background": "#F2961F1",
@@ -25,22 +31,16 @@ class HomeController extends GetxController {
       "gradient3": "#FFF33A00|#FFFFA928"
     }
   ];
-  Future<void> onThemeTopic(String s) async{
-   /// 切换模式
-    await ConfigService.to.switchThemedSkinModels(themeList[0]);
-   ///  第一步先去判断是否开启系统外观模式或者暗黑模式
-    ///  如果开启 改变背景颜色和主题颜色
-    ///  如果没有开启，判断是否有主题皮肤
-    ///  如果没有显示默认主题皮肤
-    ///  如果有显示主题皮肤并
- }
- Future<void> onThemeTopic2(String s) async{
-    /// 切换模式
-    await ConfigService.to.switchThemeModel();
-    ///  第一步先去判断是否开启系统外观模式或者暗黑模式
-    ///  如果开启 改变背景颜色和主题颜色
-    ///  如果没有开启，判断是否有主题皮肤
-    ///  如果没有显示默认主题皮肤
-    ///  如果有显示主题皮肤并
+
+  ///下拉刷新
+  void onRefresh() async {
+    print("刷新");
+    await Future.delayed(const Duration(milliseconds: 2000));
+    refreshController.refreshCompleted();
+  }
+  /// 上拉加载
+  void onLoading() async {
+    await Future.delayed(const Duration(milliseconds: 2000));
+    refreshController.loadComplete();
   }
 }

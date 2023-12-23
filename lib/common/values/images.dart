@@ -1,3 +1,3 @@
 class AssetsImages {
-  static const splashJpg = 'assets/images/splash.jpg';
+  static const splashJpg = 'assets/images/splash.jpeg';
 }

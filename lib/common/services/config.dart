@@ -55,7 +55,6 @@ class ConfigService extends GetxService {
   // 切换  主题 模式
   Future<void> switchThemeModel() async {
     _isDarkModel.value = !_isDarkModel.value;
-    print("模式是否开启${_isDarkModel.value}");
     Get.changeTheme(
       _isDarkModel.value == true ? AppTheme.dark : AppTheme.light,
     );
@@ -82,7 +81,6 @@ class ConfigService extends GetxService {
     var themeCode = Storage().getString(Constants.storageThemeModeCode);
     await Storage().setString(Constants.storageThemeCode,
         isThemedSkinsModel.value == true ? themeCode : "Skin");
-    print("切换  主题 皮肤${isThemedSkinsModel.value}");
   }
   // 初始语言
   void initLocale() {
