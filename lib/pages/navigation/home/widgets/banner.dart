@@ -20,5 +20,5 @@ Widget banner(BuildContext context){
       })
       .clipRRect(all: AppSpace.button)
       .sliverToBoxAdapter()
-      .sliverPaddingHorizontal(AppSpace.listRow).sliverPaddingVertical(AppSpace.listRow);
+      .sliverPaddingHorizontal(AppSpace.listRow).sliverPaddingTop(AppSpace.listRow);
 }

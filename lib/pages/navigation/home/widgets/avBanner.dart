@@ -17,5 +17,5 @@ Widget avBanner(BuildContext context) {
     },
   ).clipRRect(all: AppSpace.button)
       .sliverToBoxAdapter()
-      .sliverPaddingHorizontal(AppSpace.listRow);
+      .sliverPaddingHorizontal(AppSpace.listRow).sliverPaddingTop(AppSpace.listRow);
 }
