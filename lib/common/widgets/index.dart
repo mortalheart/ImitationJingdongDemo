@@ -7,3 +7,4 @@ export 'text.dart';
 export 'input.dart';
 export 'button.dart';
 export 'list_tile.dart';
+export 'marquee.dart';

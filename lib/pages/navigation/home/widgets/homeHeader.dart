@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:imitation_jingdong/common/index.dart';
+import 'package:imitation_jingdong/pages/index.dart';
 
 Widget homeHeader(BuildContext context) {
   return SliverPersistentHeader(
@@ -9,14 +11,14 @@ Widget homeHeader(BuildContext context) {
       maxHeight: 85 + MediaQuery.viewPaddingOf(context).top,
       minHeight: 85 + MediaQuery.viewPaddingOf(context).top,
       child: Container(
-        color: Colors.black12,
+        color: Colors.redAccent,
         child: <Widget>[
           <Widget>[
              Container(
                 width: 75.w,
                 height: 40.h,
                 decoration: const BoxDecoration(
-                    color: Colors.deepOrange,
+                    color: Colors.blue,
                     borderRadius: BorderRadius.all(Radius.circular(20.0))
                 ),
               ),
@@ -62,12 +64,10 @@ Widget homeHeader(BuildContext context) {
                   child:Container(
                     height: 40.h,
                     alignment: Alignment.centerLeft,
-                    child: const InkWell(
+                    child: InkWell(
                       highlightColor: Colors.transparent, // 透明色
                       splashColor: Colors.transparent, // 透明色
-                      child: Text(
-                        "搜索买菜"
-                      ),
+                      child: buildMarqueeWidget(),
                     ),
                   ).paddingHorizontal(AppSpace.listRow),
                 ),
@@ -77,13 +77,23 @@ Widget homeHeader(BuildContext context) {
                    height: 25.h,
                    color: Colors.redAccent,
                  ),
-                 SizedBox(width: 15.w,),
+                 SizedBox(
+                   width: 1.w,
+                   height: 25.h,
+                   child: const DecoratedBox(
+                     decoration: BoxDecoration(color: Colors.black12),
+                   ),
+                 ).paddingHorizontal(AppSpace.listView),
                  Container(
                    width: 25.w,
                    height: 25.h,
                    color: Colors.redAccent,
                  ),
-               ].toRow()
+               ].toRow(
+                   mainAxisSize: MainAxisSize.min,
+                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                   crossAxisAlignment: CrossAxisAlignment.center
+               )
               ].toRow(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -99,5 +109,28 @@ Widget homeHeader(BuildContext context) {
 
     ),
 
+  );
+}
+
+MarqueeWidget buildMarqueeWidget() {
+  List itemStr = Get.find<HomeController>().searchList;
+  ///上下轮播 安全提示
+  return MarqueeWidget(
+    //子Item构建器
+    itemBuilder: (BuildContext context, int index) {
+      //通常可以是一个 Text文本
+      return Text(
+        itemStr.isNotEmpty?itemStr[index]["title"]:'搜索商品',
+        textAlign: TextAlign.left,
+        style: TextStyle(
+          fontSize: 14.sp,
+          color: Colors.black54,
+          height: 2.0, //1倍行高
+        ),
+
+      );
+    },
+    //循环的提示消息数量
+    count: itemStr.length,
   );
 }

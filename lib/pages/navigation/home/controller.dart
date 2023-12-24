@@ -3,12 +3,23 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class HomeController extends GetxController {
   HomeController();
-  RefreshController refreshController = RefreshController(initialRefresh: true);
+  RefreshController refreshController = RefreshController(initialRefresh: false);
   @override
   void dispose() {
     super.dispose();
     refreshController.dispose();
   }
+  final searchList = [
+    {
+      "title": "HUAWEI Mate 60 Pro 抢先预购"
+    },
+    {
+      "title": "西铁城机械手表"
+    },
+    {
+      "title": "小米 K70"
+    }
+  ];
   final themeList = [
     {
       "background": "#F2961F1",
@@ -36,11 +47,11 @@ class HomeController extends GetxController {
   void onRefresh() async {
     print("刷新");
     await Future.delayed(const Duration(milliseconds: 2000));
-    refreshController.refreshCompleted();
+    // refreshController.refreshCompleted();
   }
   /// 上拉加载
   void onLoading() async {
     await Future.delayed(const Duration(milliseconds: 2000));
-    refreshController.loadComplete();
+    // refreshController.loadComplete();
   }
 }

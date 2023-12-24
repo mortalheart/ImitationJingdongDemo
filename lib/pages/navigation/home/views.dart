@@ -78,11 +78,13 @@ class HomePage extends GetView<HomeController> {
               child: Scaffold(
                 body: ExtendedNestedScrollView(
                     pinnedHeaderSliverHeightBuilder: () {
-                      return 100;
+                      return MediaQuery.viewPaddingOf(context).top + 44 + 54;
                     },
                   headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
                     return [
                       homeHeader(context),
+                      tabList(context),
+
                     ];
                   },
                   body: ListView.builder(
