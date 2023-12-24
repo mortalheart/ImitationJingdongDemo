@@ -1,9 +1,21 @@
 import 'package:get/get.dart';
+import 'package:imitation_jingdong/common/index.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class HomeController extends GetxController {
   HomeController();
   RefreshController refreshController = RefreshController(initialRefresh: false);
+  // Banner 当前位置
+  int bannerCurrentIndex = 0;
+  // Banner 数据
+  List<KeyValueModel> bannerItems = [];
+  List<KeyValueModel>  menuList = [];
+
+  @override
+  void onInit() {
+    super.onInit();
+    intData();
+  }
   @override
   void dispose() {
     super.dispose();
@@ -53,5 +65,27 @@ class HomeController extends GetxController {
   void onLoading() async {
     await Future.delayed(const Duration(milliseconds: 2000));
     // refreshController.loadComplete();
+  }
+  // Banner 切换事件
+  void onChangeBanner(int index, /*CarouselPageChangedReason*/ reason) {
+    bannerCurrentIndex = index;
+    update(["home_banner"]);
+  }
+
+  void intData() {
+    bannerItems =  [
+      KeyValueModel(
+          key: "01",
+          value:
+          "https://ducafecat.oss-cn-beijing.aliyuncs.com/flutter_woo_commerce_getx_ducafecat/banner01.png"),
+      KeyValueModel(
+          key: "02",
+          value:
+          "https://ducafecat.oss-cn-beijing.aliyuncs.com/flutter_woo_commerce_getx_ducafecat/banner02.png"),
+      KeyValueModel(
+          key: "03",
+          value:
+          "https://ducafecat.oss-cn-beijing.aliyuncs.com/flutter_woo_commerce_getx_ducafecat/banner03.png"),
+    ];
   }
 }

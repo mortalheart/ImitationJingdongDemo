@@ -55,19 +55,19 @@ class _MainViewGetX extends GetView<MainController> {
               ),
               NavigationItemModel(
                 label: LocaleKeys.tabBarStroll.tr,
-                icon: AssetsSvg.navHomeSvg,
+                icon: AssetsSvg.navStrollSvg,
               ),
               NavigationItemModel(
                 label: LocaleKeys.tabBarNewProduct.tr,
-                icon: AssetsSvg.navHomeSvg,
+                icon: AssetsSvg.navNewProductSvg,
               ),
               NavigationItemModel(
                 label:LocaleKeys.tabBarCart.tr,
-                icon: AssetsSvg.navHomeSvg,
+                icon: AssetsSvg.navCartSvg,
               ),
               NavigationItemModel(
                 label:LocaleKeys.tabBarMine.tr,
-                icon: AssetsSvg.navHomeSvg,
+                icon: AssetsSvg.navMineSvg,
               ),
             ],
             onTap: (int val) {

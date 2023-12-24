@@ -84,7 +84,9 @@ class HomePage extends GetView<HomeController> {
                     return [
                       homeHeader(context),
                       tabList(context),
-
+                      banner(context),
+                      avBanner(context),
+                      menuSlider(context)
                     ];
                   },
                   body: ListView.builder(
