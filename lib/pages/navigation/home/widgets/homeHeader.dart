@@ -8,15 +8,15 @@ Widget homeHeader(BuildContext context) {
   return SliverPersistentHeader(
     pinned: true,
     delegate: SliverHeaderDelegate(
-      maxHeight: 85 + MediaQuery.viewPaddingOf(context).top,
-      minHeight: 85 + MediaQuery.viewPaddingOf(context).top,
+      maxHeight: 70 + MediaQuery.viewPaddingOf(context).top,
+      minHeight: 70 + MediaQuery.viewPaddingOf(context).top,
       child: Container(
         color: Colors.redAccent,
         child: <Widget>[
           <Widget>[
              Container(
                 width: 75.w,
-                height: 40.h,
+                height: 38.h,
                 decoration: const BoxDecoration(
                     color: Colors.blue,
                     borderRadius: BorderRadius.all(Radius.circular(20.0))
@@ -25,7 +25,7 @@ Widget homeHeader(BuildContext context) {
             <Widget>[
                Container(
                   width: 35.w,
-                  height: 40.h,
+                  height: 38.h,
                   decoration: const BoxDecoration(
                       color: Colors.amber,
                   ),
@@ -33,7 +33,7 @@ Widget homeHeader(BuildContext context) {
               SizedBox(width: 15.w,),
              Container(
                   width: 35.w,
-                  height: 40.h,
+                  height: 38.h,
                   decoration: const BoxDecoration(
                       color: Colors.blueAccent,
                   ),
@@ -43,9 +43,9 @@ Widget homeHeader(BuildContext context) {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start
-          ).paddingHorizontal(AppSpace.card).paddingVertical(MediaQuery.viewPaddingOf(context).top + AppSpace.listView),
+          ).padding(horizontal:  AppSpace.card,vertical:  MediaQuery.viewPaddingOf(context).top -  AppSpace.card),
           Positioned(
-            bottom: MediaQuery.viewPaddingOf(context).bottom + 10.w,
+            bottom: MediaQuery.viewPaddingOf(context).bottom + AppSpace.listItem,
             child: Container(
               width: 394.w,
               height: 40.h,
