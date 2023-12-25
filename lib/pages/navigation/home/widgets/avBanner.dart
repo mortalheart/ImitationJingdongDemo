@@ -10,8 +10,7 @@ Widget avBanner(BuildContext context) {
     id:'av_banner',
     builder: (_){
       return Container(
-          width: 130,
-          height: 90,
+          height: 80,
           color: CupertinoColors.white,
       );
     },
