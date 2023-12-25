@@ -8,8 +8,8 @@ Widget homeHeader(BuildContext context) {
   return SliverPersistentHeader(
     pinned: true,
     delegate: SliverHeaderDelegate(
-      maxHeight: 70 + MediaQuery.viewPaddingOf(context).top,
-      minHeight: 70 + MediaQuery.viewPaddingOf(context).top,
+      maxHeight: 85 + MediaQuery.viewPaddingOf(context).top,
+      minHeight: 85 + MediaQuery.viewPaddingOf(context).top,
       child: Container(
         color: Colors.redAccent,
         child: <Widget>[
@@ -43,7 +43,7 @@ Widget homeHeader(BuildContext context) {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start
-          ).padding(horizontal:  AppSpace.card,vertical:  MediaQuery.viewPaddingOf(context).top -  AppSpace.card),
+          ).padding(horizontal:  AppSpace.card,vertical:  MediaQuery.viewPaddingOf(context).top + AppSpace.listItem),
           Positioned(
             bottom: MediaQuery.viewPaddingOf(context).bottom + AppSpace.listItem,
             child: Container(

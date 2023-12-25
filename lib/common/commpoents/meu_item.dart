@@ -1,56 +1,42 @@
-
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:imitation_jingdong/common/index.dart';
 
-/// 菜单导航项
-class MenuListItemWidget extends StatelessWidget {
-  /// 菜单导数据
-  final CategoryModel  category;
 
-  /// 选中代码
-  final int? selectId;
+class MenuItem extends StatelessWidget {
+  const MenuItem(
+      this.menuData, {
+        super.key,
+      });
 
-  /// tap 事件
-  final Function(int categoryId)? onTap;
-
-  const MenuListItemWidget({
-    super.key,
-    required this.category,
-    this.onTap,
-    this.selectId,
-  });
+  final MenuRootEntity menuData;
 
   @override
   Widget build(BuildContext context) {
-    return <Widget>[
-      // 图
-      ImageWidget.url(
-        category.image?.src ?? "", // 图片地址
-        width: 52.w,
-        height: 52.w,
+    return GestureDetector(
+      onTap: () {
+        if ((menuData.h5url ?? "").isNotEmpty) {
+        }
+      },
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          CachedNetworkImage(
+            width: 40,
+            height: 40,
+            fit: BoxFit.cover,
+            imageUrl: menuData.menuIcon.toString(),
+          ),
+          Container(
+            alignment: Alignment.center,
+            margin: const EdgeInsets.only(top: 4),
+            child: Text(
+              menuData.menuName.toString(),
+              style: const TextStyle(fontSize: 12),
+            ),
+          )
+        ],
       ),
-      // 文字
-      TextWidget.body1(
-        category.name ?? "-", // 文字内容
-        size: 14.sp,
-        color: selectId == category.id ? AppColors.onSecondary : null, // 选中颜色
-      ),
-    ]
-        .toColumn(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    )
-
-    // padding 垂直间距
-        .paddingVertical(AppSpace.button)
-
-    // 背景色
-        .backgroundColor(
-      selectId == category.id
-          ? AppColors.onSurfaceVariant
-          : Colors.transparent,
-    )
-        .onTap(() => onTap?.call(category.id!));
+    );
   }
 }

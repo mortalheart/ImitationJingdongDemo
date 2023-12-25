@@ -30,6 +30,7 @@ dependencies:
   package_info_plus: ^5.0.1
   shared_preferences: ^2.2.2
   extended_nested_scroll_view: ^6.2.0
+  cached_network_image: ^3.3.0
 
 dev_dependencies:
   flutter_test:
