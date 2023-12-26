@@ -4,4 +4,4 @@ export 'homeHeader.dart';
 export 'tabList.dart';
 export 'banner.dart';
 export 'avBanner.dart';
-export 'menuSlider.dart';
+export 'menu_slider.dart';

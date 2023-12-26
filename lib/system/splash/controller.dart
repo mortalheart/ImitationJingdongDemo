@@ -7,7 +7,7 @@ import 'package:imitation_jingdong/common/index.dart';
 class SplashController extends GetxController {
   SplashController();
   Timer? timer;
-
+  final isAnimationCompleted = false.obs;
   //倒计时（单位：秒）10s
   late  RxInt timeCount = 4.obs;
   final adObj = {}.obs;
@@ -53,7 +53,7 @@ class SplashController extends GetxController {
         if (timeCount <= 0) {
           Timer(const Duration(milliseconds: 500), () {
             //取消倒计时，并跳转主页
-            jumpToMain();
+            // jumpToMain();
           });
         }
       });
@@ -81,7 +81,14 @@ class SplashController extends GetxController {
   jumpToMain() {
     if (timer != null) {
       timer?.cancel();
-      _jumpToPage(); // 跳转界面
+      // 模拟延迟2秒后完成动画
+      Future.delayed(const Duration(seconds: 3), () {
+        // 将动画状态设置为已完成
+        isAnimationCompleted.value = true;
+        // 跳转到下一个页面
+        _jumpToPage(); // 跳转界面
+      });
+
     }
   }
 

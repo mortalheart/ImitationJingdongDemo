@@ -94,7 +94,12 @@ class SplashPage extends GetView<SplashController> {
       init: SplashController(),
       id: "splash",
       builder: (_) {
-        return _buildView();
+        return AnimatedOpacity(
+            opacity: controller.isAnimationCompleted.value ? 0.0 : 1.0,
+            duration: const Duration(seconds: 3), // 设置动画时长
+        curve: Curves.easeInOut, // 设置动画曲线
+          child: _buildView(),
+        );
       },
     );
   }

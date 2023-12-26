@@ -1,6 +1,5 @@
 import 'package:extended_nested_scroll_view/extended_nested_scroll_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:imitation_jingdong/common/index.dart';
 import 'package:imitation_jingdong/pages/index.dart';
@@ -50,52 +49,28 @@ class HomePage extends GetView<HomeController> {
                 twoLevelWidget: TwoLevelWidget(),
               ),
               //自定义上拉样式
-              footer: CustomFooter(
-                builder: (BuildContext context, LoadStatus? mode) {
-                  Text body;
-                  if (mode == LoadStatus.idle) {
-                    //闲置状态
-                    body = const Text("上拉加载更多");
-                  } else if (mode == LoadStatus.loading) {
-                    //加载状态
-                    body = const Text("正在努力加载中...");
-                  } else if (mode == LoadStatus.failed) {
-                    //加载数据失败
-                    body = const Text("加载失败，稍后重试");
-                  } else {
-                    //没有数据
-                    body = const Text("没有更多数据了");
-                  }
-                  return SizedBox(
-                    height: 20.w,
-                    child: Center(child: body),
-                  );
-                },
-
-              ),
+              footer: const SmartRefresherFooterWidget(),
               onRefresh: controller.onRefresh,
               onLoading: controller.onLoading,
               child: Scaffold(
                 body: ExtendedNestedScrollView(
                     pinnedHeaderSliverHeightBuilder: () {
-                      return MediaQuery.viewPaddingOf(context).top + 44 + 54;
+                      return MediaQuery.viewPaddingOf(context).top + 85;
                     },
                   headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
                     return [
                       homeHeader(context),
                       tabList(context),
-                      banner(context),
-                      avBanner(context),
+                      // banner(context),
+                      // avBanner(context),
                       menuSlider(context)
                     ];
                   },
-                  body: ListView.builder(
-                      itemCount: 90,
-                      itemExtent: 50.0, //强制高度为50.0
-                      itemBuilder: (BuildContext context, int index) {
-                        return ListTile(title: Text("$index"));
-                      }
-                  ),
+                  body: <Widget>[
+                    // banner(context),
+                    // avBanner(context),
+                    // menuSlider(context)
+                  ].toColumn(),
                 ),
               ),
 

@@ -16,5 +16,5 @@ Widget menuSlider(BuildContext context) {
   return PageMenu(
     menuDataList: menuData,
     rowCount: 2,
-  ).sliverToBoxAdapter().sliverPaddingTop(AppSpace.listRow);
+  ).clipRRect(topLeft:  AppSpace.listRow,topRight:  AppSpace.listRow).sliverToBoxAdapter();
 }
