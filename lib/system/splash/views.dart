@@ -1,5 +1,4 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -94,12 +93,7 @@ class SplashPage extends GetView<SplashController> {
       init: SplashController(),
       id: "splash",
       builder: (_) {
-        return AnimatedOpacity(
-            opacity: controller.isAnimationCompleted.value ? 0.0 : 1.0,
-            duration: const Duration(seconds: 3), // 设置动画时长
-        curve: Curves.easeInOut, // 设置动画曲线
-          child: _buildView(),
-        );
+        return _buildView();
       },
     );
   }
